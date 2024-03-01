@@ -13,10 +13,10 @@ const emailListSchema = joi.string().custom((value, helpers) => {
 
 const beautifulValidation = data => {
     const schema = joi.object({
-        xml: joi.string().required(),
         folio: joi.string().required(),
         fileName: joi.string().required(),
-        templateId: joi.string().required(),
+        templateId: joi.number().required(),
+        xmlFile: joi.object().required(),
         destinationMail: emailListSchema,
     });
     return schema.validate(data);
